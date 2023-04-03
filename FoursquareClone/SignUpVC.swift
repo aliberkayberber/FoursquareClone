@@ -8,7 +8,7 @@
 import UIKit
 import Parse
 
-class ViewController: UIViewController {
+class SignUpVC: UIViewController {
 
     
     @IBOutlet weak var userNameText: UITextField!
@@ -28,7 +28,10 @@ class ViewController: UIViewController {
                 if error != nil {
                     self.makeAlert(titleInput: "Error", massageInput: error?.localizedDescription ?? "Error")
                 } else {
-                    self.performSegue(withIdentifier: "toPlacesVC", sender: nil)
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "navigationController") as! UINavigationController
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true)
+                    //self.performSegue(withIdentifier: "toPlacesVC", sender: nil)
                 }
             }
         } else {
