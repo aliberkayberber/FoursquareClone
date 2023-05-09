@@ -21,6 +21,7 @@ class PlacesViewController: UIViewController {
     
     @objc func addButtonClicked() {
         // segue
+        performSegue(withIdentifier: "toAddPlaceVC", sender: nil)
     }
     @objc func logoutButtonClicked() {
         PFUser.logOutInBackground { error in
