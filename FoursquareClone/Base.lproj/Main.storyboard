@@ -114,6 +114,7 @@
                         <outlet property="tableView" destination="NXz-EL-HiR" id="BG1-f9-34d"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="toSignUpVC" modalPresentationStyle="fullScreen" id="00M-iS-6NC"/>
                         <segue destination="i2u-We-pt5" kind="show" identifier="toAddPlaceVC" id="Sa3-j7-ogQ"/>
+                        <segue destination="dQo-TL-uY2" kind="show" identifier="toDetailVC" id="Adj-XT-eEG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u0C-vI-XF6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -150,7 +151,7 @@
                                 <rect key="frame" x="78" y="403.66666666666674" width="240" height="223"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHY-QM-wCX">
-                                <rect key="frame" x="151" y="697" width="91" height="35"/>
+                                <rect key="frame" x="151" y="696.66666666666663" width="91" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="aMN-Sl-wuc"/>
                                 </constraints>
@@ -263,6 +264,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuF-Gl-iIY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3951.9083969465646" y="-27.464788732394368"/>
+        </scene>
+        <!--DetailVC-->
+        <scene sceneID="Grd-xX-UQ7">
+            <objects>
+                <viewController id="dQo-TL-uY2" customClass="DetailVC" customModule="FoursquareClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P6o-zE-Nbi">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j7S-Qt-YDt">
+                                <rect key="frame" x="0.0" y="130" width="393" height="212"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PlaceNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJt-Sv-ROj">
+                                <rect key="frame" x="42" y="350" width="308" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PlaceTypeLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Mq-k0-riy">
+                                <rect key="frame" x="42" y="413" width="308" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PlaceAtmospherLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BsH-Fc-CfK">
+                                <rect key="frame" x="42" y="476" width="308" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ecj-4D-cUU">
+                                <rect key="frame" x="0.0" y="539" width="393" height="313"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nEo-NY-mm7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="C7h-5T-p7y"/>
+                    <connections>
+                        <outlet property="detailsImageView" destination="j7S-Qt-YDt" id="AHU-ye-6eA"/>
+                        <outlet property="mapView" destination="ecj-4D-cUU" id="Ahx-Hu-mi1"/>
+                        <outlet property="placeAtmospherLabel" destination="BsH-Fc-CfK" id="jLP-MJ-GAq"/>
+                        <outlet property="placeNameLabel" destination="rJt-Sv-ROj" id="bJa-KX-r8J"/>
+                        <outlet property="placeTypeLabel" destination="2Mq-k0-riy" id="Pua-Qt-5HU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uND-5I-sqU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2200.7633587786258" y="761.97183098591552"/>
         </scene>
     </scenes>
     <resources>
