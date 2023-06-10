@@ -11,6 +11,8 @@
 		DD20EF342A0AD1E900BFA511 /* AddPlaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD20EF332A0AD1E900BFA511 /* AddPlaceVC.swift */; };
 		DD20EF362A0AD49900BFA511 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD20EF352A0AD49900BFA511 /* MapVC.swift */; };
 		DD306AC229C8E6F900F25F4B /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD306AC129C8E6F900F25F4B /* PlacesViewController.swift */; };
+		DD9C1E912A34F29600FBEF75 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C1E902A34F29600FBEF75 /* DetailVC.swift */; };
+		DD9C1E932A34F99F00FBEF75 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C1E922A34F99F00FBEF75 /* PlaceModel.swift */; };
 		DD9E5E7329C244D3008CE424 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E5E7229C244D3008CE424 /* AppDelegate.swift */; };
 		DD9E5E7529C244D3008CE424 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E5E7429C244D3008CE424 /* SceneDelegate.swift */; };
 		DD9E5E7729C244D3008CE424 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E5E7629C244D3008CE424 /* SignUpVC.swift */; };
@@ -25,6 +27,8 @@
 		DD20EF332A0AD1E900BFA511 /* AddPlaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceVC.swift; sourceTree = "<group>"; };
 		DD20EF352A0AD49900BFA511 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		DD306AC129C8E6F900F25F4B /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
+		DD9C1E902A34F29600FBEF75 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		DD9C1E922A34F99F00FBEF75 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		DD9E5E6F29C244D3008CE424 /* FoursquareClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoursquareClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD9E5E7229C244D3008CE424 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD9E5E7429C244D3008CE424 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				DD9E5E7B29C244D4008CE424 /* Assets.xcassets */,
 				DD9E5E7D29C244D4008CE424 /* LaunchScreen.storyboard */,
 				DD9E5E8029C244D4008CE424 /* Info.plist */,
+				DD9C1E902A34F29600FBEF75 /* DetailVC.swift */,
+				DD9C1E922A34F99F00FBEF75 /* PlaceModel.swift */,
 			);
 			path = FoursquareClone;
 			sourceTree = "<group>";
@@ -216,11 +222,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD306AC229C8E6F900F25F4B /* PlacesViewController.swift in Sources */,
+				DD9C1E932A34F99F00FBEF75 /* PlaceModel.swift in Sources */,
 				DD20EF362A0AD49900BFA511 /* MapVC.swift in Sources */,
 				DD9E5E7729C244D3008CE424 /* SignUpVC.swift in Sources */,
 				DD9E5E7329C244D3008CE424 /* AppDelegate.swift in Sources */,
 				DD20EF342A0AD1E900BFA511 /* AddPlaceVC.swift in Sources */,
 				DD9E5E7529C244D3008CE424 /* SceneDelegate.swift in Sources */,
+				DD9C1E912A34F29600FBEF75 /* DetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

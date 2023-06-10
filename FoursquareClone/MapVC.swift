@@ -18,6 +18,8 @@ class MapVC: UIViewController {
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "Save", style: UIBarButtonItem.Style.plain, target: self, action: #selector(mapSave))
         
         navigationController?.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: self, action: #selector(backClicked))
+        
+        print(PlaceModel.sharedInstance.placeName)
     }
     
     @objc func mapSave() {
