@@ -13,6 +13,7 @@ class PlacesViewController: UIViewController {
     
     var placeNameArray = [(String)]()
     var placeIdArray = [(String)]()
+    var selectedPlaceId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class PlacesViewController: UIViewController {
                     
                     for object in objects! {
                         if let placeName = object.object(forKey: "name") as? String {
-                            if let placeId = object.objectId as? String {
+                            if let placeId = object.objectId {
                                 self.placeNameArray.append(placeName)
                                 self.placeIdArray.append(placeId)
                             }
@@ -77,6 +78,15 @@ class PlacesViewController: UIViewController {
         alert.addAction(okButton)
         self.present(alert , animated: true)
     }
+    
+    // MARK: -- diğer sayfaya ulaşmak için segu ile bu kullanılıyor
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailVC" {
+            let destinationVC = segue.destination as! DetailVC
+            destinationVC.chosenPlaceId = selectedPlaceId
+        }
+    }
+    
 }
 
 extension PlacesViewController:UITableViewDelegate,UITableViewDataSource {
@@ -89,7 +99,10 @@ extension PlacesViewController:UITableViewDelegate,UITableViewDataSource {
         cell.textLabel?.text = placeNameArray[indexPath.row]
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedPlaceId = placeIdArray[indexPath.row]
+        self.performSegue(withIdentifier: "toDetailVC", sender: nil)
+    }
     
 }
 
