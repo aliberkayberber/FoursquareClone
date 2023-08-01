@@ -29,9 +29,8 @@ class DetailVC: UIViewController {
         super.viewDidLoad()
         
        getData()
-       
+        mapView.delegate = self
    
-        print(chosenLongitude)
     }
     
     func makeAlert(titleInput: String, massageInput: String) {
@@ -89,7 +88,9 @@ class DetailVC: UIViewController {
                         // MARK: -- maps
                         
                         let location = CLLocationCoordinate2D(latitude: self.chosenLatitude, longitude: self.chosenLongitude)
-                        let span = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
+                        print(self.chosenLatitude)
+                        print(self.chosenLongitude)
+                        let span = MKCoordinateSpan(latitudeDelta: 0.035, longitudeDelta: 0.035)
                         let region = MKCoordinateRegion(center: location, span: span)
                         self.mapView.setRegion(region, animated: true)
                         
@@ -106,4 +107,80 @@ class DetailVC: UIViewController {
         }
     }
     
+
 }
+
+extension DetailVC: MKMapViewDelegate, CLLocationManagerDelegate {
+    /*
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            if annotation is MKUserLocation {
+                return nil
+            }
+            
+            let reuseId = "pin"
+            
+            var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
+            
+            if pinView == nil {
+                pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+                pinView?.canShowCallout = true
+                let button = UIButton(type: .detailDisclosure)
+                pinView?.rightCalloutAccessoryView = button
+            } else {
+                pinView?.annotation = annotation
+            }
+            
+            return pinView
+            
+        }
+    */
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+  
+        if annotation is MKUserLocation {
+            return nil
+        }
+        let reuseId = "pin"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
+        
+        if pinView == nil {
+     pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView?.canShowCallout = true
+            let button = UIButton(type: .detailDisclosure)
+            pinView?.rightCalloutAccessoryView = button
+            
+        }else {
+            pinView?.annotation = annotation
+        }
+        
+        return pinView
+        
+        
+    }
+     
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if self.chosenLatitude != 0.0 && self.chosenLongitude != 0.0 {
+            let requestLocation = CLLocation(latitude: self.chosenLatitude, longitude: self.chosenLongitude)
+            
+            CLGeocoder().reverseGeocodeLocation(requestLocation) { placesmarks, error in
+                if let placesmark = placesmarks {
+                    if placesmark.count > 0 {
+                        let mkPlaceMark = MKPlacemark(placemark: placesmark[0])
+                        let mapItem = MKMapItem(placemark: mkPlaceMark)
+                        mapItem.name = self.placeNameLabel.text
+                        
+                        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+                        
+                        mapItem.openInMaps(launchOptions: launchOptions)
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+
